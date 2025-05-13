@@ -6,6 +6,7 @@ async function bootstrap() {
   const whitelist = [
     'https://memstagram-typescript.vercel.app',
     'http://localhost:5173',
+    'https://respondent-front.vercel.app/'
   ];
 
   app.enableCors({
