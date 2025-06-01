@@ -7,7 +7,7 @@ import { Respondent } from './schemas/respondent.schema'
 @Injectable()
 export class RespondentsService {
   constructor(
-    @InjectModel('Respondent')
+    @InjectModel(Respondent.name)
     private readonly respondentModel: Model<Respondent>,
   ) {}
 

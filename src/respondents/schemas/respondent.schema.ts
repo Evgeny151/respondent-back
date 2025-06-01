@@ -1,6 +1,6 @@
 import { Prop, SchemaFactory, Schema } from '@nestjs/mongoose';
 
-@Schema()
+@Schema({ collection: 'respondents', timestamps: true })
 export class Respondent {
   @Prop()
   to_send: string;
@@ -62,36 +62,3 @@ export class Respondent {
 }
 
 export const RespondentSchema = SchemaFactory.createForClass(Respondent);
-
-// export const RespondentSchema = new Schema({
-//   to_send: String,
-//   user_id: String,
-//   username: String,
-//   gender: String,
-//   name: String,
-//   age: String,
-//   city: String,
-//   education: String,
-//   education_two: String,
-//   occupation: String,
-//   unemployed: String,
-//   period: String,
-//   student: String,
-//   student_job: String,
-//   self_employed: String,
-//   employment: String,
-//   freelance_employment: String,
-//   freelance_work: String,
-//   field_work: String,
-//   income: String,
-//   job_device: String,
-//   leisure_device: String,
-//   research: String,
-//   platform: String,
-//   time: String,
-//   privacy: String,
-//   answers: {
-//     type: Map,
-//     of: String,
-//   },
-// });
