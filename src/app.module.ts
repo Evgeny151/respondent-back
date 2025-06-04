@@ -3,6 +3,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { MongooseModule } from '@nestjs/mongoose';
 import { RespondentsModule } from './respondents/respondents.module';
+import { SurveysModule } from './surveys/surveys.module';
 
 @Module({
   imports: [
@@ -10,6 +11,7 @@ import { RespondentsModule } from './respondents/respondents.module';
       'mongodb+srv://test:test@cluster0.httyobw.mongodb.net/survey_db?retryWrites=true&w=majority&appName=Cluster0',
     ),
     RespondentsModule,
+    SurveysModule,
   ],
   controllers: [AppController],
   providers: [AppService],
