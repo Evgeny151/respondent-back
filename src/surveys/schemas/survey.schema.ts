@@ -10,6 +10,7 @@ import {
   IsOptional,
   IsString,
   ValidateNested,
+  IsBoolean
 } from 'class-validator'
 
 // Тип вопроса
@@ -61,6 +62,14 @@ export class Survey extends Document {
   @Prop({ type: Object, required: true })
   @IsObject()
   researchDescription: Record<string, string>
+
+  @Prop({ type: Boolean, required: false, default: false })
+  @IsBoolean()
+  completed: boolean
+
+  @Prop({ type: Boolean, required: false, default: false })
+  @IsBoolean()
+  inProgress: boolean
 }
 
 export const SurveySchema = SchemaFactory.createForClass(Survey)

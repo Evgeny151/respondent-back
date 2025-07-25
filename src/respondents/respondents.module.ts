@@ -1,9 +1,8 @@
-// respondents/respondents.module.ts
-import { Module } from '@nestjs/common'
-import { MongooseModule } from '@nestjs/mongoose'
-import { RespondentsService } from './respondents.service'
-import { RespondentsController } from './respondents.controller'
-import { RespondentSchema } from './schemas/respondent.schema'
+import { Module } from '@nestjs/common';
+import { MongooseModule } from '@nestjs/mongoose';
+import { RespondentsService } from './respondents.service';
+import { RespondentsController } from './respondents.controller';
+import { RespondentSchema } from './schemas/respondent.schema';
 
 @Module({
   imports: [

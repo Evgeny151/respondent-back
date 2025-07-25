@@ -8,7 +8,7 @@ import { SurveysModule } from './surveys/surveys.module';
 @Module({
   imports: [
     MongooseModule.forRoot(
-      'mongodb+srv://test:test@cluster0.httyobw.mongodb.net/survey_db?retryWrites=true&w=majority&appName=Cluster0',
+      'mongodb://gen_user:iihdA%405(2i%3E,%3A(@188.225.58.18:27017/default_db?authSource=admin&directConnection=true',
     ),
     RespondentsModule,
     SurveysModule,

@@ -1,6 +1,6 @@
 // respondents/respondents.controller.ts
-import { Controller, Get } from '@nestjs/common'
-import { RespondentsService } from './respondents.service'
+import { Controller, Get } from '@nestjs/common';
+import { RespondentsService } from './respondents.service';
 
 @Controller('respondents')
 export class RespondentsController {
@@ -8,6 +8,6 @@ export class RespondentsController {
 
   @Get()
   async findAll() {
-    return this.respondentsService.findAll()
+    return this.respondentsService.findAll();
   }
 }
