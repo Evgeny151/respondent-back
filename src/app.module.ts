@@ -1,15 +1,35 @@
 import { Module } from '@nestjs/common';
+import { ConfigModule, ConfigService } from '@nestjs/config';
+import { MongooseModule } from '@nestjs/mongoose';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { MongooseModule } from '@nestjs/mongoose';
 import { RespondentsModule } from './respondents/respondents.module';
 import { SurveysModule } from './surveys/surveys.module';
 
 @Module({
   imports: [
-    MongooseModule.forRoot(
-      'mongodb://gen_user:iihdA%405(2i%3E,%3A(@188.225.58.18:27017/default_db?authSource=admin&directConnection=true',
-    ),
+    ConfigModule.forRoot({
+      isGlobal: true,
+      envFilePath: [
+        `.env.${process.env.NODE_ENV}`, // например .env.local
+        '.env', // fallback
+      ],
+    }),
+
+    MongooseModule.forRootAsync({
+      imports: [ConfigModule],
+      inject: [ConfigService],
+      useFactory: (configService: ConfigService) => {
+        const uri = configService.get<string>('MONGODB_URI');
+        if (!uri) {
+          throw new Error('❌ MONGODB_URI is not defined in .env file!');
+        }
+        return {
+          uri,
+        };
+      },
+    }),
+
     RespondentsModule,
     SurveysModule,
   ],
